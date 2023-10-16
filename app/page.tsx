@@ -10,13 +10,13 @@ export default function Home() {
           id="avatar"
           className="flex flex-col sm:flex-row smallcaps font-russo"
         >
-          <div className="transition-all duration-500">
+          <div className="self-center transition-all duration-500">
             <Image
               src={avatar}
               alt="Avatar"
               width={128}
               height={128}
-              className="self-center p-3"
+              className="p-3"
             />
           </div>
           <h1 className="text-4xl text-center align-middle ml-4 pt-2 self-center">
