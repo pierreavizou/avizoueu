@@ -37,12 +37,15 @@ export default function Home() {
           </div>
           <div className="justify-self-center">
             <p className="bg-blue-700 hover:bg-blue inline-block p-3 rounded text-lg mt-14">
-              hi@avizou.eu
+              hi<span className="hidden">&nbsp;</span>@
+              <span className="hidden">&nbsp;</span>avizou
+              <span className="hidden">&nbsp;</span>.
+              <span className="hidden">&nbsp;</span>eu
             </p>
           </div>
         </div>
       </main>
-      <footer className="h-32 bg-purple dark:bg-blue-dark flex flex-col items-center justify-center z-0">
+      <footer className="bg-purple dark:bg-blue-dark flex flex-col items-center justify-center py-6">
         <div>
           <p>&copy; 2023 Pierre Avizou</p>
           <p>SIRET: 84012005900026</p>
@@ -59,6 +62,9 @@ export default function Home() {
             </svg>
             <span className="align-middle ml-1">Linkedin</span>
           </a>
+          <p className="mt-4 italic text-sm">
+            No cookies stored, no data collected.
+          </p>
         </div>
       </footer>
     </>
