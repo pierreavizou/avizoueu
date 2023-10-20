@@ -47,8 +47,11 @@ export async function GET(
     }
   }
 
-  const queryString = decodeURIComponent(req.nextUrl.searchParams.toString());
-  const parsedQueryString = Object.fromEntries(req.nextUrl.searchParams);
+  const queryString =
+    decodeURIComponent(req.nextUrl.searchParams.toString()) || null;
+  const parsedQueryString = queryString
+    ? Object.fromEntries(req.nextUrl.searchParams)
+    : null;
 
   const filename = params.filename;
 
