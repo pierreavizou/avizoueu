@@ -14,7 +14,7 @@ const supabase = createClient(
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { filename: string } },
+  { params }: { params: { filename: string[] } },
 ) {
   const headersList = headers();
 
@@ -68,12 +68,16 @@ export async function GET(
     });
     if (error) console.error("Could not save data to Supabase", error);
   } catch (e) {
-    console.error("Could not communicated with Supabase", e);
+    console.error("Could not communicate with Supabase", e);
   }
+
+  console.log("filename", filename);
 
   try {
     const img = await fetch(
-      `https://wekujktwjytshhlqfrew.supabase.co/storage/v1/object/public/Assets/${filename}`,
+      `${process.env.SUPABASE_URL}/storage/v1/object/public/${filename.join(
+        "/",
+      )}`,
     );
 
     if (img.status !== 200) {
