@@ -3,9 +3,9 @@ import { ImageResponse, NextRequest } from "next/server";
 import { headers } from "next/headers";
 import { createClient } from "@supabase/supabase-js";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
-export const fetchCache = "force-no-store";
+// export const dynamic = "force-dynamic";
+// export const revalidate = 0;
+// export const fetchCache = "force-no-store";
 
 const supabase = createClient(
   process.env.SUPABASE_URL ?? "",
@@ -62,6 +62,9 @@ export async function GET(
       width: 401,
       height: 123,
       emoji: "twemoji",
+      headers: {
+        "cache-control": "no-cache",
+      },
     },
   );
 }
