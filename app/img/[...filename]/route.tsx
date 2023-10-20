@@ -53,7 +53,7 @@ export async function GET(
     ? Object.fromEntries(req.nextUrl.searchParams)
     : null;
 
-  const filename = params.filename;
+  const filename = params.filename.join("/");
 
   try {
     const { error } = await supabase.from("access_logs").insert({
@@ -75,9 +75,7 @@ export async function GET(
 
   try {
     const img = await fetch(
-      `${process.env.SUPABASE_URL}/storage/v1/object/public/${filename.join(
-        "/",
-      )}`,
+      `${process.env.SUPABASE_URL}/storage/v1/object/public/${filename}`,
     );
 
     if (img.status !== 200) {
