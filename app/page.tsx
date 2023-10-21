@@ -47,7 +47,7 @@ export default function Home() {
       </main>
       <footer className="flex flex-col items-center justify-center bg-purple py-6 dark:bg-blue-dark">
         <div>
-          <p>&copy; 2023 Pierre Avizou</p>
+          <p>&copy; 2018 - 2023 Pierre Avizou</p>
           <p>SIRET: 84012005900026</p>
           <a href="https://www.linkedin.com/in/pierre-avizou-b31aa392/">
             <svg
