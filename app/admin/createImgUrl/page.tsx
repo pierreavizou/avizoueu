@@ -4,7 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { MyAuth } from "@/app/login/page";
+import { MyAuth } from "@/components/ui/LoginForm";
 import type { Session } from "@supabase/auth-helpers-nextjs";
 
 const supabase = createClientComponentClient();
