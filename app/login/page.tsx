@@ -10,7 +10,7 @@ const User = () => {
   const router = useRouter();
   // console.log("u", u);
   if (u.session) {
-    router.push("http://localhost:3000/admin/createImgUrl");
+    router.push(`${process.env.NEXT_PUBLIC_FRONT_URL}/admin/createImgUrl`);
   }
   return <></>;
 };

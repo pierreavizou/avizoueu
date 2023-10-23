@@ -9,7 +9,7 @@ export const MyAuth = () => {
   return (
     <div className="my-auto w-full rounded-md bg-slate-900 p-8 lg:w-1/3 xl:w-1/4">
       <Auth
-        redirectTo="http://localhost:3000/admin/createImgUrl"
+        redirectTo={`${process.env.NEXT_PUBLIC_FRONT_URL}/admin/createImgUrl`}
         supabaseClient={supabase}
         magicLink={true}
         otpType="email"
