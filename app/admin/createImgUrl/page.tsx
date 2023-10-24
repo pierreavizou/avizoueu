@@ -9,7 +9,7 @@ import type { Session } from "@supabase/auth-helpers-nextjs";
 
 const supabase = createClientComponentClient();
 
-function handleFormSubmit(formData: FormData) {
+function generateFinalUrl(formData: FormData) {
   const imgUrl = formData.get("imgUrl");
   formData.delete("imgUrl");
 
@@ -70,7 +70,7 @@ export default function CreateImgUrl() {
           e.preventDefault();
           const formData = new FormData(e.currentTarget);
           setImgUrl(formData.get("imgUrl") as string);
-          const url = handleFormSubmit(formData);
+          const url = generateFinalUrl(formData);
           setFinalUrl(url);
         }}
       >

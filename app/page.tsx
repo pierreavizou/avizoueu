@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
-import avatar from "@/public/avatar.png";
 import Link from "next/link";
+import avatar from "@/public/avatar.png";
+import EmailButton from "@/components/EmailButton";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
           Pierre Avizou
         </h1>
       </div>
-      <div className="my-auto flex flex-col items-center md:max-w-4xl">
+      <div className="my-auto flex flex-col items-center py-10 md:max-w-4xl">
         <div>
           <p className="text-center text-5xl font-bold uppercase md:text-7xl">
             {" "}
@@ -36,15 +37,9 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col justify-self-center">
-          <p className="mt-14 inline-block rounded bg-blue-700 p-3 text-lg hover:bg-blue">
-            hi<span className="hidden">&nbsp;</span>@
-            <span className="hidden">&nbsp;</span>avizou
-            <span className="hidden">&nbsp;</span>.
-            <span className="hidden">&nbsp;</span>eu
-          </p>
-          <br />
+          <EmailButton />
           <Link
-            className="mt-4 inline-block cursor-pointer rounded bg-green-600 p-3 text-center text-lg hover:bg-green-900"
+            className="bg-green mt-4 inline-block cursor-pointer rounded p-3 text-center text-lg hover:bg-green-500"
             href="/login"
           >
             Login

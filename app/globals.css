@@ -7,27 +7,82 @@
   src: url("../public/Cyberpunk.ttf"), url("../public/Cyberpunk.otf");
 }
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-radial-start-rgb: 3, 158, 255;
-  --background-start-rgb: 62, 127, 243;
-  --background-end-rgb: 119, 69, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-radial-start-rgb: 3, 158, 255;
+    --background-start-rgb: 62, 127, 243;
+    --background-end-rgb: 119, 69, 255;
+
+    --font-cyberpunk: "Cyberpunk";
+
+    /* Shadcn */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
   }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-}
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --foreground-rgb: 255, 255, 255;
+      --background-start-rgb: 0, 0, 0;
+      --background-end-rgb: 0, 0, 0;
 
-main {
-  @apply z-40 flex min-h-screen flex-col items-center bg-blue-purple-radial p-16;
+      /* Shadcn */
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 217.2 91.2% 59.8%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 224.3 76.3% 48%;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  main {
+    --foreground: 210 40% 98%;
+    /* @apply z-40 flex min-h-screen flex-col items-center bg-blue-purple-radial p-16; */
+  }
 }
 
 @layer utilities {
@@ -35,29 +90,3 @@ main {
     font-variant: small-caps;
   }
 }
-
-/* #avatar > div::before {
-  opacity: 0;
-  content: '';
-  background-color: transparent;
-  border-radius: 50%;
-  border: 5px solid lightgray;
-  position: absolute;
-  width: 135px;
-  height: 135px;
-  transform: translateY(-5px) translateX(-5px);
-  transition: all;
-  transition-duration: 500ms;
-}
-
-#avatar:hover {
-  @apply font-cyberpunk;
-}
-
-#avatar:hover > div::before {
-  opacity: 1;
-}
-
-#avatar:hover > div {
-  @apply bg-yellow-cyber shadow-inset rounded-full;
-} */
