@@ -1,28 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/server";
-// import { Mail } from "lucide-react";
-// import { readFileSync } from "fs";
+import { readFileSync } from "fs";
 
-// const cyberpunk = readFileSync("public/Cyberpunk.ttf");
-// const russo = readFileSync("public/RussoOne-Regular.ttf");
-export const runtime = "edge";
+const cyberpunk = readFileSync("public/Cyberpunk.ttf");
+const russo = readFileSync("public/RussoOne-Regular.ttf");
+const notosans = readFileSync("public/NotoSansJP-Bold.ttf");
+
+// export const runtime = "edge";
 
 export async function GET() {
-  const cyberpunk = await fetch(
-    new URL("../../../public/Cyberpunk.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // const cyberpunk = await fetch(
+  //   new URL("../../../public/Cyberpunk.ttf", import.meta.url),
+  // ).then((res) => res.arrayBuffer());
 
-  const russo = await fetch(
-    new URL("../../../public/RussoOne-Regular.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // const russo = await fetch(
+  //   new URL("../../../public/RussoOne-Regular.ttf", import.meta.url),
+  // ).then((res) => res.arrayBuffer());
 
-  const notosans = await fetch(
-    new URL("../../../public/NotoSansJP-Bold.ttf", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // const notosans = await fetch(
+  //   new URL("../../../public/NotoSansJP-Bold.ttf", import.meta.url),
+  // ).then((res) => res.arrayBuffer());
 
-  const avatar = await fetch(
-    new URL("../../../public/avatar.png", import.meta.url),
-  ).then((res) => res.arrayBuffer());
+  // const avatar = await fetch(
+  //   new URL("../../../public/avatar.png", import.meta.url),
+  // ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     (
@@ -40,7 +41,6 @@ export async function GET() {
           textAlign: "center",
           alignItems: "center",
           justifyContent: "center",
-          // alignContent: "center",
           color: "white",
         }}
       >
@@ -51,17 +51,17 @@ export async function GET() {
             fontVariant: "small-caps",
             alignItems: "center",
             gap: "2rem",
-            // fontFamily: "RussoOne",
           }}
         >
           <img
-            src={avatar as unknown as string}
+            src={`${
+              process.env.NEXT_PUBLIC_FRONT_URL ??
+              process.env.VERCEL_URL ??
+              "http://localhost:3000"
+            }/avatar.png`}
             alt=""
             height={200}
             width={200}
-            // style={{
-            //   backgroundColor: "red",
-            // }}
           />
           <span>Pierre Avizou</span>
         </div>
@@ -70,11 +70,6 @@ export async function GET() {
             display: "flex",
             flexDirection: "row",
             gap: "4rem",
-            // backgroundColor: "red",
-            // justifyContent: "center",
-            // alignContent: "center",
-            // justifyItems: "center",
-            // alignItems: "center",
           }}
         >
           <div
@@ -130,13 +125,11 @@ export async function GET() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                // class="lucide lucide-phone"
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>{" "}
               <span
                 style={{
-                  // verticalAlign: "middle",
                   marginLeft: "0.5rem",
                 }}
               >
@@ -159,7 +152,6 @@ export async function GET() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                // class="lucide lucide-globe"
               >
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
@@ -167,7 +159,6 @@ export async function GET() {
               </svg>{" "}
               <span
                 style={{
-                  // verticalAlign: "middle",
                   marginLeft: "0.5rem",
                 }}
               >
@@ -198,7 +189,6 @@ export async function GET() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                // class="lucide lucide-building-2"
               >
                 <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
                 <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
@@ -210,7 +200,6 @@ export async function GET() {
               </svg>{" "}
               <span
                 style={{
-                  // verticalAlign: "middle",
                   marginLeft: "0.5rem",
                 }}
               >
@@ -233,13 +222,11 @@ export async function GET() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                // class="lucide lucide-laptop"
               >
                 <path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16" />
               </svg>{" "}
               <span
                 style={{
-                  // verticalAlign: "middle",
                   marginLeft: "0.5rem",
                 }}
               >
@@ -262,7 +249,6 @@ export async function GET() {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                // class="lucide lucide-languages"
               >
                 <path d="m5 8 6 6" />
                 <path d="m4 14 6-6 2-3" />
@@ -273,7 +259,6 @@ export async function GET() {
               </svg>{" "}
               <span
                 style={{
-                  // verticalAlign: "middle",
                   marginLeft: "0.5rem",
                   // fontSize: 25,
                 }}
