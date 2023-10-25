@@ -10,6 +10,11 @@ const russo = Russo_One({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_FRONT_URL ??
+      process.env.VERCEL_URL ??
+      "http://localhost:3000",
+  ),
   title: "P.A. Dev and more",
   description: "Pierre likes to write code and solve problems",
 };
