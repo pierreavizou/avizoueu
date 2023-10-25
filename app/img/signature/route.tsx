@@ -6,7 +6,7 @@ const cyberpunk = readFileSync("public/Cyberpunk.ttf");
 const russo = readFileSync("public/RussoOne-Regular.ttf");
 const notosans = readFileSync("public/NotoSansJP-Bold.ttf");
 
-// export const runtime = "edge";
+export const runtime = "nodejs";
 
 export async function GET() {
   // const cyberpunk = await fetch(
