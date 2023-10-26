@@ -1,12 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { NextRequest } from "next/server";
-import { createClient } from "@supabase/supabase-js";
 import logAccess from "@/lib/server/logFileAccess";
-
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
-  process.env.SUPABASE_SERVICE_KEY ?? "",
-);
 
 export async function GET(
   req: NextRequest,

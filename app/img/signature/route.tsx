@@ -11,7 +11,7 @@ const notosans = readFileSync("public/NotoSansJP-Bold.ttf");
 export const runtime = "nodejs";
 
 export async function GET(req: NextRequest) {
-  await logAccess(req, req.nextUrl.pathname);
+  await logAccess(req, req.nextUrl?.pathname);
   // const cyberpunk = await fetch(
   //   new URL("../../../public/Cyberpunk.ttf", import.meta.url),
   // ).then((res) => res.arrayBuffer());
