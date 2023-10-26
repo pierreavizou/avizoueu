@@ -54,7 +54,10 @@ export default async function logAccess(req: NextRequest, filename: string) {
     : null;
 
   // const filename = params.filename.join("/");
-  const fullFilename = `${process.env.NEXT_PUBLIC_FRONT_URL}/${filename}`;
+  const fullFilename = new URL(
+    filename,
+    process.env.NEXT_PUBLIC_FRONT_URL ?? "",
+  );
 
   try {
     const { error } = await supabase.from("access_logs").insert({

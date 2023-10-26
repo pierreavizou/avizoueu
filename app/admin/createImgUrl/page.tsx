@@ -2,10 +2,11 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { MyAuth } from "@/components/ui/LoginForm";
 import type { Session } from "@supabase/auth-helpers-nextjs";
+import TooltipClipboard from "@/components/ui/tooltip-clipboard";
 
 const supabase = createClientComponentClient();
 
@@ -37,7 +38,7 @@ function getNologUrl(imgUrl: string) {
 }
 
 export default function CreateImgUrl() {
-  const defaultImg = `${process.env.NEXT_PUBLIC_FRONT_URL}/img/Assets/sigp.png`;
+  const defaultImg = `${process.env.NEXT_PUBLIC_FRONT_URL}/img/signature`;
   const [finalUrl, setFinalUrl] = useState("");
   const [md, setMd] = useState("");
   const [html, setHtml] = useState("");
@@ -100,6 +101,7 @@ export default function CreateImgUrl() {
             type="email"
             name="recipientEmail"
             autoComplete="email"
+            defaultValue="pierre@avizou.eu"
           />
         </label>
 
@@ -110,6 +112,7 @@ export default function CreateImgUrl() {
             className="mt-1 block w-full rounded text-gray-800 shadow-md focus:ring-2 focus:ring-purple-700"
             type="text"
             name="emailSubject"
+            defaultValue="A super important email"
           />
         </label>
 
@@ -122,14 +125,20 @@ export default function CreateImgUrl() {
       </form>
       {finalUrl && (
         <>
-          <p className="break-words">{finalUrl}</p>
+          <TooltipClipboard text={finalUrl}>
+            <p className="break-words">{finalUrl}</p>
+          </TooltipClipboard>
           <hr />
-          <p className="break-words font-mono">{md}</p>
+          <TooltipClipboard text={md}>
+            <p className="break-words font-mono">{md}</p>
+          </TooltipClipboard>
           <hr />
-          <p className="break-words font-mono">{html}</p>
+          <TooltipClipboard text={html}>
+            <p className="break-words font-mono">{html}</p>
+          </TooltipClipboard>
           <hr />
           <img
-            className="block h-auto max-h-32 w-auto max-w-lg self-center"
+            className="block h-auto max-h-56 w-auto max-w-lg self-center"
             src={getNologUrl(imgUrl)}
             alt=""
             // width={512}

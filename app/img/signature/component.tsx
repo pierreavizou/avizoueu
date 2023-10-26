@@ -1,17 +1,52 @@
 /* eslint-disable @next/next/no-img-element */
-export default function Component() {
+
+const SmallCaps = () => {
+  return (
+    <>
+      P
+      <span
+        style={{
+          fontSize: 85,
+          lineHeight: 1.9,
+          marginRight: "2rem",
+        }}
+      >
+        IERRE
+      </span>{" "}
+      A
+      <span
+        style={{
+          fontSize: 85,
+          lineHeight: 1.95,
+          // marginLeft: "-1rem",
+        }}
+      >
+        VIZOU
+      </span>
+    </>
+  );
+};
+
+export default function Component({
+  hideAvatar = false,
+  gradientBg = false,
+  lowerCase = false,
+}: {
+  hideAvatar?: boolean;
+  gradientBg?: boolean;
+  lowerCase?: boolean;
+}) {
   return (
     <div
       style={{
         fontFamily: "RussoOne",
-        background: "#1b8cff",
-        // background:
-        //   "radial-gradient(circle, rgb(3, 158, 255) 0%, rgb(119, 69, 255) 100%)",
+        background: gradientBg
+          ? "radial-gradient(circle, rgb(3, 158, 255) 0%, rgb(119, 69, 255) 100%)"
+          : "#1b8cff",
         width: "100%",
         height: "100%",
         display: "flex",
         flexDirection: "column",
-        // gap: "2.5rem",
         textAlign: "center",
         alignItems: "center",
         justifyContent: "center",
@@ -25,19 +60,29 @@ export default function Component() {
           fontVariant: "small-caps",
           alignItems: "center",
           gap: "2rem",
+          height: "200px",
+          // backgroundColor: "red",
         }}
       >
-        <img
-          src={`${
-            process.env.NEXT_PUBLIC_FRONT_URL ??
-            process.env.VERCEL_URL ??
-            "http://localhost:3000"
-          }/avatar.png`}
-          alt=""
-          height={200}
-          width={200}
-        />
-        <span>Pierre Avizou</span>
+        {!hideAvatar && (
+          <img
+            src={`${
+              process.env.NEXT_PUBLIC_FRONT_URL ??
+              process.env.VERCEL_URL ??
+              "http://localhost:3000"
+            }/avatar.png`}
+            alt=""
+            height={200}
+            width={200}
+          />
+        )}
+        <span
+          style={{
+            fontVariant: "small-caps",
+          }}
+        >
+          {lowerCase ? "Pierre Avizou" : <SmallCaps />}
+        </span>
       </div>
       <div
         style={{

@@ -34,25 +34,34 @@ export async function GET(req: NextRequest) {
   //   new URL("../../../public/avatar.png", import.meta.url),
   // ).then((res) => res.arrayBuffer());
 
-  return new ImageResponse(<Component />, {
-    headers: {
-      "cache-control": "no-cache",
+  return new ImageResponse(
+    (
+      <Component
+        hideAvatar={req.nextUrl?.searchParams.has("hideAvatar")}
+        gradientBg={req.nextUrl?.searchParams.has("gradientBg")}
+        lowerCase={req.nextUrl?.searchParams.has("lowerCase")}
+      />
+    ),
+    {
+      headers: {
+        "cache-control": "no-cache",
+      },
+      fonts: [
+        {
+          name: "RussoOne",
+          data: russo,
+        },
+        // {
+        //   name: "Cyberpunk",
+        //   data: cyberpunk,
+        // },
+        {
+          name: "NotoSans",
+          data: notosans,
+        },
+      ],
+      width: 1200,
+      height: 600,
     },
-    fonts: [
-      {
-        name: "RussoOne",
-        data: russo,
-      },
-      // {
-      //   name: "Cyberpunk",
-      //   data: cyberpunk,
-      // },
-      {
-        name: "NotoSans",
-        data: notosans,
-      },
-    ],
-    width: 1200,
-    height: 600,
-  });
+  );
 }

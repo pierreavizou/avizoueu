@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import avatar from "@/public/avatar.png";
 import EmailButton from "@/components/EmailButton";
+import TooltipClipboard from "@/components/ui/tooltip-clipboard";
 
 export default function Home() {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
         <div className="flex flex-col justify-self-center">
           <EmailButton />
           <Link
-            className="bg-green mt-4 inline-block cursor-pointer rounded p-3 text-center text-lg hover:bg-green-500"
+            className="mt-4 inline-block cursor-pointer rounded bg-green p-3 text-center text-lg hover:bg-green-500"
             href="/login"
           >
             Login
