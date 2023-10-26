@@ -4,11 +4,11 @@ import { readFileSync } from "fs";
 import Component from "./component";
 import logAccess from "@/lib/server/logFileAccess";
 
-// const cyberpunk = readFileSync("public/Cyberpunk.ttf");
-const russo = readFileSync("app/img/signature/RussoOne-Regular.ttf");
-const notosans = readFileSync("app/img/signature/NotoSansJP-Bold.ttf");
-
 export const runtime = "nodejs";
+
+// const cyberpunk = readFileSync("public/Cyberpunk.ttf");
+const russo = readFileSync("assets/RussoOne-Regular.ttf");
+const notosans = readFileSync("assets/NotoSansJP-Bold.ttf");
 
 export async function GET(req: NextRequest) {
   await logAccess(req, req.nextUrl?.pathname);
