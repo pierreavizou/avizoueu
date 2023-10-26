@@ -68,6 +68,7 @@ export default async function logAccess(req: NextRequest, filename: string) {
       metadata,
     });
     if (error) console.error("Could not save data to Supabase", error);
+    else console.log("Logged access to", filename);
   } catch (e) {
     console.error("Could not communicate with Supabase", e);
   }

@@ -34,31 +34,4 @@ export async function GET(
       status: 500,
     });
   }
-
-  // return new ImageResponse(
-  //   (
-  //     <div
-  //       style={{
-  //         display: "flex",
-  //       }}
-  //     >
-  //       <img
-  //         src={`https://wekujktwjytshhlqfrew.supabase.co/storage/v1/object/public/Assets/${filename}`}
-  //         alt=""
-  //         width={401}
-  //         height={123}
-  //       />
-  //     </div>
-  //   ),
-  //   {
-  //     // width: 1200,
-  //     // height: 630,
-  //     width: 401,
-  //     height: 123,
-  //     emoji: "twemoji",
-  //     headers: {
-  //       "cache-control": "no-cache",
-  //     },
-  //   },
-  // );
 }

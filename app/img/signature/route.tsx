@@ -6,6 +6,7 @@ import Component from "./component";
 import logAccess from "@/lib/server/logFileAccess";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 // const cyberpunk = readFileSync("public/Cyberpunk.ttf");
 const russo = readFileSync(
@@ -34,6 +35,9 @@ export async function GET(req: NextRequest) {
   // ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(<Component />, {
+    headers: {
+      "cache-control": "no-cache",
+    },
     fonts: [
       {
         name: "RussoOne",
