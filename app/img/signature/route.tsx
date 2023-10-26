@@ -1,7 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageResponse } from "next/server";
+import { ImageResponse, NextRequest } from "next/server";
 import { readFileSync } from "fs";
 import Component from "./component";
+import logAccess from "@/lib/server/logFileAccess";
 
 const cyberpunk = readFileSync("public/Cyberpunk.ttf");
 const russo = readFileSync("public/RussoOne-Regular.ttf");
@@ -9,7 +10,8 @@ const notosans = readFileSync("public/NotoSansJP-Bold.ttf");
 
 export const runtime = "nodejs";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  await logAccess(req, req.nextUrl.pathname);
   // const cyberpunk = await fetch(
   //   new URL("../../../public/Cyberpunk.ttf", import.meta.url),
   // ).then((res) => res.arrayBuffer());

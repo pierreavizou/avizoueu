@@ -2,7 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { MyAuth } from "@/components/ui/LoginForm";
 import type { Session } from "@supabase/auth-helpers-nextjs";
@@ -29,8 +29,15 @@ function generateFinalUrl(formData: FormData) {
   return `${imgUrl}?${qs}`;
 }
 
+function getNologUrl(imgUrl: string) {
+  let u = new URL(imgUrl);
+  u.searchParams.append("nolog", "true");
+  console.log("u", u);
+  return u.toString();
+}
+
 export default function CreateImgUrl() {
-  const defaultImg = "https://avizou.eu/img/Assets/sigp.png";
+  const defaultImg = `${process.env.NEXT_PUBLIC_FRONT_URL}/img/Assets/sigp.png`;
   const [finalUrl, setFinalUrl] = useState("");
   const [md, setMd] = useState("");
   const [html, setHtml] = useState("");
@@ -123,7 +130,7 @@ export default function CreateImgUrl() {
           <hr />
           <img
             className="block h-auto max-h-32 w-auto max-w-lg self-center"
-            src={imgUrl}
+            src={getNologUrl(imgUrl)}
             alt=""
             // width={512}
             // height={128}
