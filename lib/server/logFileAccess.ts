@@ -9,7 +9,10 @@ const supabase = createClient(
 );
 
 export default async function logAccess(req: NextRequest, filename: string) {
-  if (req.nextUrl?.searchParams.has("nolog")) {
+  if (
+    typeof req.nextUrl === "undefined" ||
+    req.nextUrl.searchParams.has("nolog")
+  ) {
     console.log("Not logging access to", filename);
     return;
   }
