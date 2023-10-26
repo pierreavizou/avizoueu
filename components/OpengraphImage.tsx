@@ -6,8 +6,8 @@ const SmallCaps = () => {
       P
       <span
         style={{
-          fontSize: "3.5rem",
-          lineHeight: 1.45,
+          fontSize: 85,
+          lineHeight: 1.9,
           marginRight: "2rem",
         }}
       >
@@ -16,8 +16,9 @@ const SmallCaps = () => {
       A
       <span
         style={{
-          fontSize: "3.5rem",
-          lineHeight: 1.45,
+          fontSize: 85,
+          lineHeight: 1.95,
+          // marginLeft: "-1rem",
         }}
       >
         VIZOU
@@ -54,12 +55,12 @@ export default function Component({
     >
       <div
         style={{
-          fontSize: "4rem",
+          fontSize: 120,
           display: "flex",
+          fontVariant: "small-caps",
           alignItems: "center",
           gap: "2rem",
-          height: "130px",
-          marginTop: "-1.25rem",
+          height: "200px",
           // backgroundColor: "red",
         }}
       >
@@ -71,18 +72,23 @@ export default function Component({
               "http://localhost:3000"
             }/avatar.png`}
             alt=""
-            height={100}
-            width={100}
+            height={200}
+            width={200}
           />
         )}
-        <span>{lowerCase ? "Pierre Avizou" : <SmallCaps />}</span>
+        <span
+          style={{
+            fontVariant: "small-caps",
+          }}
+        >
+          {lowerCase ? "Pierre Avizou" : <SmallCaps />}
+        </span>
       </div>
       <div
         style={{
           display: "flex",
           flexDirection: "row",
           gap: "4rem",
-          fontSize: 14,
         }}
       >
         <div
@@ -100,8 +106,8 @@ export default function Component({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="44"
+              height="44"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -130,8 +136,8 @@ export default function Component({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="44"
+              height="44"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -157,8 +163,8 @@ export default function Component({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="44"
+              height="44"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -194,8 +200,8 @@ export default function Component({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="44"
+              height="44"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -227,8 +233,8 @@ export default function Component({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="44"
+              height="44"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -254,8 +260,8 @@ export default function Component({
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
+              width="44"
+              height="44"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

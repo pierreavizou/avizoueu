@@ -60,8 +60,8 @@ export async function GET(req: NextRequest) {
           data: notosans,
         },
       ],
-      width: 1200,
-      height: 600,
+      width: 650,
+      height: 280,
     },
   );
 }
