@@ -4,9 +4,9 @@ import { readFileSync } from "fs";
 import Component from "./component";
 import logAccess from "@/lib/server/logFileAccess";
 
-const cyberpunk = readFileSync("public/Cyberpunk.ttf");
-const russo = readFileSync("public/RussoOne-Regular.ttf");
-const notosans = readFileSync("public/NotoSansJP-Bold.ttf");
+// const cyberpunk = readFileSync("public/Cyberpunk.ttf");
+const russo = readFileSync("app/img/signature/RussoOne-Regular.ttf");
+const notosans = readFileSync("app/img/signature/NotoSansJP-Bold.ttf");
 
 export const runtime = "nodejs";
 
@@ -34,10 +34,10 @@ export async function GET(req: NextRequest) {
         name: "RussoOne",
         data: russo,
       },
-      {
-        name: "Cyberpunk",
-        data: cyberpunk,
-      },
+      // {
+      //   name: "Cyberpunk",
+      //   data: cyberpunk,
+      // },
       {
         name: "NotoSans",
         data: notosans,
