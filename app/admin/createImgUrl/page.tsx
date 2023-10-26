@@ -4,9 +4,10 @@
 
 import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import { MyAuth } from "@/components/ui/LoginForm";
+import { MyAuth } from "@/components/LoginForm";
 import type { Session } from "@supabase/auth-helpers-nextjs";
 import TooltipClipboard from "@/components/ui/tooltip-clipboard";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const supabase = createClientComponentClient();
 
@@ -30,6 +31,18 @@ function generateFinalUrl(formData: FormData) {
   return `${imgUrl}?${qs}`;
 }
 
+function ImgSkeleton() {
+  return (
+    <div className="flex items-center space-x-4 self-center">
+      <div className="space-y-2">
+        <Skeleton className="h-8 w-[120px]" />
+        <Skeleton className="h-8 w-[120px]" />
+        <Skeleton className="h-8 w-[120px]" />
+      </div>
+    </div>
+  );
+}
+
 function getNologUrl(imgUrl: string) {
   let u = new URL(imgUrl);
   u.searchParams.append("nolog", "true");
@@ -43,6 +56,7 @@ export default function CreateImgUrl() {
   const [md, setMd] = useState("");
   const [html, setHtml] = useState("");
   const [imgUrl, setImgUrl] = useState(defaultImg);
+  const [loading, setLoading] = useState(false);
 
   const [session, setSession] = useState<Session | null>(null);
 
@@ -64,7 +78,13 @@ export default function CreateImgUrl() {
   useEffect(() => {
     setMd(`![Image](${finalUrl})`);
     setHtml(`<img src="${finalUrl}" />`);
-  }, [finalUrl]);
+    const fetchImg = async () => {
+      setLoading(true);
+      await fetch(getNologUrl(imgUrl));
+      setLoading(false);
+    };
+    fetchImg();
+  }, [finalUrl, imgUrl]);
 
   if (!session) {
     return <MyAuth />;
@@ -137,13 +157,17 @@ export default function CreateImgUrl() {
             <p className="break-words font-mono">{html}</p>
           </TooltipClipboard>
           <hr />
-          <img
-            className="block h-auto max-h-56 w-auto max-w-lg self-center"
-            src={getNologUrl(imgUrl)}
-            alt=""
-            // width={512}
-            // height={128}
-          />
+          {loading ? (
+            <ImgSkeleton />
+          ) : (
+            <img
+              className="block h-auto max-h-56 w-auto max-w-lg self-center"
+              src={getNologUrl(imgUrl)}
+              alt=""
+              // width={512}
+              // height={128}
+            />
+          )}
         </>
       )}
     </div>

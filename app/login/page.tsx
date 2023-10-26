@@ -3,7 +3,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Auth } from "@supabase/auth-ui-react";
 import { useRouter } from "next/navigation";
-import { MyAuth } from "@/components/ui/LoginForm";
+import { MyAuth } from "@/components/LoginForm";
 
 const User = () => {
   const u = Auth.useUser();
