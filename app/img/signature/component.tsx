@@ -274,7 +274,7 @@ export default function Component({
                 // fontSize: 25,
               }}
             >
-              FR - EN - ES - DE - IT - 和語
+              FR - EN - ES - DE - IT
               {/* 🇫🇷 - 🇺🇸 - 🇪🇸 - 🇩🇪 - 🇮🇹 - 🇯🇵 */}
             </span>
           </div>
