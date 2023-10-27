@@ -6,8 +6,8 @@ const SmallCaps = () => {
       P
       <span
         style={{
-          fontSize: "3.5rem",
-          lineHeight: 1.45,
+          fontSize: "2.75rem",
+          lineHeight: 1.55,
           marginRight: "2rem",
         }}
       >
@@ -16,8 +16,8 @@ const SmallCaps = () => {
       A
       <span
         style={{
-          fontSize: "3.5rem",
-          lineHeight: 1.45,
+          fontSize: "2.75rem",
+          lineHeight: 1.55,
         }}
       >
         VIZOU
@@ -54,11 +54,11 @@ export default function Component({
     >
       <div
         style={{
-          fontSize: "4rem",
+          fontSize: "3.25rem",
           display: "flex",
           alignItems: "center",
           gap: "2rem",
-          height: "130px",
+          height: "110px",
           marginTop: "-1.25rem",
           // backgroundColor: "red",
         }}
@@ -71,8 +71,8 @@ export default function Component({
               "http://localhost:3000"
             }/avatar.png`}
             alt=""
-            height={100}
-            width={100}
+            height={90}
+            width={90}
           />
         )}
         <span>{lowerCase ? "Pierre Avizou" : <SmallCaps />}</span>
@@ -82,7 +82,7 @@ export default function Component({
           display: "flex",
           flexDirection: "row",
           gap: "4rem",
-          fontSize: 14,
+          fontSize: 12,
         }}
       >
         <div
