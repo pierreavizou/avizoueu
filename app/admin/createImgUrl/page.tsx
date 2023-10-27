@@ -161,7 +161,7 @@ export default function CreateImgUrl() {
             <ImgSkeleton />
           ) : (
             <img
-              className="block h-auto max-h-56 w-auto max-w-lg self-center"
+              className="block h-auto max-h-56 w-auto max-w-full self-center lg:max-w-lg"
               src={getNologUrl(imgUrl)}
               alt=""
               // width={512}
