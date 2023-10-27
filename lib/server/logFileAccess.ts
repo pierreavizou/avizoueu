@@ -2,6 +2,7 @@ import { headers } from "next/headers";
 import { NextRequest } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
+import { getFrontUrl } from "../utils";
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL ?? "",
@@ -54,10 +55,7 @@ export default async function logAccess(req: NextRequest, filename: string) {
     : null;
 
   // const filename = params.filename.join("/");
-  const fullFilename = new URL(
-    filename,
-    process.env.NEXT_PUBLIC_FRONT_URL ?? "",
-  );
+  const fullFilename = new URL(filename, getFrontUrl());
 
   try {
     const { error } = await supabase.from("access_logs").insert({

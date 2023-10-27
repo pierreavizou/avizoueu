@@ -1,5 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { getFrontUrl } from "@/lib/utils";
+
 const SmallCaps = () => {
   return (
     <>
@@ -65,11 +67,7 @@ export default function Component({
       >
         {!hideAvatar && (
           <img
-            src={`${
-              process.env.NEXT_PUBLIC_FRONT_URL ??
-              process.env.VERCEL_URL ??
-              "http://localhost:3000"
-            }/avatar.png`}
+            src={`${getFrontUrl()}/avatar.png`}
             alt=""
             height={90}
             width={90}

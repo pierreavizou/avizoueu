@@ -8,11 +8,12 @@ import { MyAuth } from "@/components/LoginForm";
 import type { Session } from "@supabase/auth-helpers-nextjs";
 import TooltipClipboard from "@/components/ui/tooltip-clipboard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { getFrontUrl } from "@/lib/utils";
 
 const supabase = createClientComponentClient();
 
 function generateFinalUrl(formData: FormData) {
-  const imgUrl = formData.get("imgUrl");
+  const imgUrl = new URL(formData.get("imgUrl") as string);
   formData.delete("imgUrl");
 
   let formDataObject: Record<string, unknown> = {};
@@ -23,12 +24,13 @@ function generateFinalUrl(formData: FormData) {
     "base64",
   );
 
-  const qs = new URLSearchParams({
-    emailSubject: formData.get("emailSubject") as string,
-    metadata,
-  });
+  imgUrl.searchParams.append(
+    "emailSubject",
+    formData.get("emailSubject") as string,
+  );
+  imgUrl.searchParams.append("metadata", metadata);
 
-  return `${imgUrl}?${qs}`;
+  return imgUrl.toString();
 }
 
 function ImgSkeleton() {
@@ -46,12 +48,11 @@ function ImgSkeleton() {
 function getNologUrl(imgUrl: string) {
   let u = new URL(imgUrl);
   u.searchParams.append("nolog", "true");
-  console.log("u", u);
   return u.toString();
 }
 
 export default function CreateImgUrl() {
-  const defaultImg = `${process.env.NEXT_PUBLIC_FRONT_URL}/img/signature`;
+  const defaultImg = `${getFrontUrl()}/img/signature`;
   const [finalUrl, setFinalUrl] = useState("");
   const [md, setMd] = useState("");
   const [html, setHtml] = useState("");
@@ -63,7 +64,6 @@ export default function CreateImgUrl() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
-      // console.log("session", session);
     });
 
     const {
@@ -76,6 +76,8 @@ export default function CreateImgUrl() {
   }, []);
 
   useEffect(() => {
+    if (finalUrl === "") return;
+
     setMd(`![Image](${finalUrl})`);
     setHtml(`<img src="${finalUrl}" />`);
     const fetchImg = async () => {

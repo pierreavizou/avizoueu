@@ -4,6 +4,7 @@ import { ThemeSupa } from "@supabase/auth-ui-shared";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { getFrontUrl } from "@/lib/utils";
 
 const supabase = createClientComponentClient();
 
@@ -21,7 +22,7 @@ export const MyAuth = () => {
         Only existing customers can log in.
       </p>
       <Auth
-        redirectTo={`${process.env.NEXT_PUBLIC_FRONT_URL}/admin/createImgUrl`}
+        redirectTo={`${getFrontUrl()}/admin/createImgUrl`}
         supabaseClient={supabase}
         magicLink={true}
         otpType="email"

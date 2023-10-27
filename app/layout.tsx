@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Russo_One } from "next/font/google";
+import { getFrontUrl } from "@/lib/utils";
 
 const russo = Russo_One({
   subsets: ["latin"],
@@ -10,11 +11,7 @@ const russo = Russo_One({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_FRONT_URL ??
-      process.env.VERCEL_URL ??
-      "http://localhost:3000",
-  ),
+  metadataBase: new URL(getFrontUrl()),
   title: "P.A. Dev and more",
   description: "Pierre likes to write code and solve problems",
 };

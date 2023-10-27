@@ -4,13 +4,14 @@ import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Auth } from "@supabase/auth-ui-react";
 import { useRouter } from "next/navigation";
 import { MyAuth } from "@/components/LoginForm";
+import { getFrontUrl } from "@/lib/utils";
 
 const User = () => {
   const u = Auth.useUser();
   const router = useRouter();
   // console.log("u", u);
   if (u.session) {
-    router.replace(`${process.env.NEXT_PUBLIC_FRONT_URL}/admin/createImgUrl`);
+    router.replace(`${getFrontUrl()}/admin/createImgUrl`);
   }
   return <></>;
 };
