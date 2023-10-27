@@ -4,6 +4,7 @@ import Link from "next/link";
 import avatar from "@/public/avatar.png";
 import EmailButton from "@/components/EmailButton";
 import TooltipClipboard from "@/components/ui/tooltip-clipboard";
+import { Code, Megaphone, ShoppingCart, Truck } from "lucide-react";
 
 export default function Home() {
   return (
@@ -37,7 +38,32 @@ export default function Home() {
             I solve complex problems so you don't have to.
           </p>
         </div>
-        <div className="flex flex-col justify-self-center">
+        <div className="mt-12 flex flex-col gap-0 text-xl md:flex-row md:gap-4">
+          <span>
+            <Code className="inline-block" />
+            &nbsp;
+            <span className="align-middle">Software</span>
+          </span>
+          <span className="text-center">—</span>
+          <span>
+            <ShoppingCart className="inline-block" />
+            &nbsp;
+            <span className="align-middle">Ecommerce</span>
+          </span>
+          <span className="text-center">—</span>
+          <span>
+            <Megaphone className="inline-block" />
+            &nbsp;
+            <span className="align-middle">Marketing</span>
+          </span>
+          <span className="text-center">—</span>
+          <span>
+            <Truck className="inline-block" />
+            &nbsp;
+            <span className="align-middle">Supply chain</span>
+          </span>
+        </div>
+        <div className="flex flex-col">
           <EmailButton />
           <Link
             className="mt-4 inline-block cursor-pointer rounded bg-green p-3 text-center text-lg hover:bg-green-500"
