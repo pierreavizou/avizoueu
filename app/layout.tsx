@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${russo.variable}`}>
-        <main className="z-40 flex min-h-screen flex-col items-center bg-blue-purple-radial p-16">
+        <main className="z-40 flex min-h-screen flex-col items-center bg-blue-purple-radial p-8 md:p-16">
           {children}
         </main>
         <footer className="flex flex-col items-center justify-center bg-purple py-6 dark:bg-blue-dark">
