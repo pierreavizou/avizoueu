@@ -6,7 +6,9 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getFrontUrl(): string {
-  return process.env.NEXT_PUBLIC_VERCEL_URL
-    ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
-    : null ?? process.env.NEXT_PUBLIC_FRONT_URL ?? "http://localhost:3000";
+  return (
+    process.env.NEXT_PUBLIC_FRONT_URL ??
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    "http://localhost:3000"
+  );
 }
