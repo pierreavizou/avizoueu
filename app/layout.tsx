@@ -12,7 +12,7 @@ const russo = Russo_One({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getFrontUrl()),
-  title: "P.A. Dev and more",
+  title: "E.I.P.A. Dev and more",
   description: "Pierre likes to write code and solve problems",
 };
 

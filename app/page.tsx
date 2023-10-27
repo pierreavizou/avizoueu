@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import avatar from "@/public/avatar.png";
 import EmailButton from "@/components/EmailButton";
-import TooltipClipboard from "@/components/ui/tooltip-clipboard";
 import { Code, Megaphone, ShoppingCart, Truck } from "lucide-react";
 
 export default function Home() {
