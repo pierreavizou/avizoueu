@@ -51,7 +51,7 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
-        <Analytics />
+        {process.env.NEXT_PUBLIC_VERCEL_ENV === "production" && <Analytics />}
       </body>
     </html>
   );
