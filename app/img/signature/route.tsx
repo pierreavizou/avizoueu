@@ -12,9 +12,9 @@ export const dynamic = "force-dynamic";
 const russo = readFileSync(
   path.join(process.cwd(), "assets", "RussoOne-Regular.ttf"),
 );
-const notosans = readFileSync(
-  path.join(process.cwd(), "assets", "NotoSansJP-Bold.ttf"),
-);
+// const notosans = readFileSync(
+//   path.join(process.cwd(), "assets", "NotoSansJP-Bold.ttf"),
+// );
 
 export async function GET(req: NextRequest) {
   logAccess(req, req.nextUrl?.pathname);
@@ -55,10 +55,10 @@ export async function GET(req: NextRequest) {
         //   name: "Cyberpunk",
         //   data: cyberpunk,
         // },
-        {
-          name: "NotoSans",
-          data: notosans,
-        },
+        // {
+        //   name: "NotoSans",
+        //   data: notosans,
+        // },
       ],
       width: 550,
       height: 230,
