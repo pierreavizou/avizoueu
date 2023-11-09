@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { MyAuth } from "@/components/LoginForm";
 import type { Session } from "@supabase/auth-helpers-nextjs";
+import { Switch } from "@/components/ui/switch";
 import TooltipClipboard from "@/components/ui/tooltip-clipboard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { getFrontUrl } from "@/lib/utils";
@@ -24,10 +25,10 @@ function generateFinalUrl(formData: FormData) {
     "base64",
   );
 
-  imgUrl.searchParams.append(
-    "emailSubject",
-    formData.get("emailSubject") as string,
-  );
+  for (const [key, value] of Object.entries(formDataObject)) {
+    if (key === "recipientEmail") continue;
+    imgUrl.searchParams.append(key, value as string);
+  }
   imgUrl.searchParams.append("metadata", metadata);
 
   return imgUrl.toString();
@@ -82,7 +83,7 @@ export default function CreateImgUrl() {
     setHtml(`<img src="${finalUrl}" />`);
     const fetchImg = async () => {
       setLoading(true);
-      await fetch(getNologUrl(imgUrl));
+      await fetch(getNologUrl(finalUrl));
       setLoading(false);
     };
     fetchImg();
@@ -138,6 +139,33 @@ export default function CreateImgUrl() {
           />
         </label>
 
+        <label className="flex cursor-pointer gap-2" htmlFor="hideAvatar">
+          <Switch
+            className="data-[state=checked]:bg-green"
+            name="hideAvatar"
+            id="hideAvatar"
+          />
+          Cacher l'avatar
+        </label>
+
+        <label className="flex cursor-pointer gap-2" htmlFor="gradientBg">
+          <Switch
+            className="data-[state=checked]:bg-green"
+            name="gradientBg"
+            id="gradientBg"
+          />
+          Couleur de fond en dégradé
+        </label>
+
+        <label className="flex cursor-pointer gap-2" htmlFor="lowerCase">
+          <Switch
+            className="data-[state=checked]:bg-green"
+            name="lowerCase"
+            id="lowerCase"
+          />
+          Nom en minuscules
+        </label>
+
         <button
           type="submit"
           className="my-2 rounded bg-purple p-2 shadow-md transition-colors duration-300 hover:bg-purple-700"
@@ -164,7 +192,7 @@ export default function CreateImgUrl() {
           ) : (
             <img
               className="block h-auto max-h-56 w-auto max-w-full self-center lg:max-w-lg"
-              src={getNologUrl(imgUrl)}
+              src={getNologUrl(finalUrl)}
               alt=""
               // width={512}
               // height={128}
