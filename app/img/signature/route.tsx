@@ -17,7 +17,7 @@ const russo = readFileSync(
 // );
 
 export async function GET(req: NextRequest) {
-  logAccess(req, req.nextUrl?.pathname);
+  await logAccess(req, req.nextUrl?.pathname);
   // const cyberpunk = await fetch(
   //   new URL("../../../public/Cyberpunk.ttf", import.meta.url),
   // ).then((res) => res.arrayBuffer());
