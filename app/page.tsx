@@ -19,6 +19,7 @@ export default function Home() {
             width={128}
             height={128}
             className="p-3"
+            priority
           />
         </div>
         <h1 className="ml-4 self-center pt-2 text-center align-middle text-4xl">
@@ -37,11 +38,11 @@ export default function Home() {
             I solve complex problems so you don't have to.
           </p>
         </div>
-        <div className="mt-12 flex flex-col gap-0 text-xl md:flex-row md:gap-4">
+        {/* <div className="mt-12 flex flex-col gap-0 text-xl md:flex-row md:gap-4">
           <span>
             <Code className="inline-block" />
             &nbsp;
-            <span className="align-middle">Software</span>
+            <span className="align-middle">Code</span>
           </span>
           <span className="text-center">—</span>
           <span>
@@ -61,7 +62,7 @@ export default function Home() {
             &nbsp;
             <span className="align-middle">Supply chain</span>
           </span>
-        </div>
+        </div> */}
         <div className="flex flex-col">
           <EmailButton />
           <Link

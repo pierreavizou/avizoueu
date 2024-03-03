@@ -27,7 +27,7 @@ const config: Config = {
       },
       fontFamily: {
         russo: "var(--font-russo)",
-        cyberpunk: "var(--font-cyberpunk)",
+        // cyberpunk: "var(--font-cyberpunk)",
         // sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       boxShadow: {
