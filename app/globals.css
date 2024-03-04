@@ -14,6 +14,8 @@
     --background-start-rgb: 62, 127, 243;
     --background-end-rgb: 119, 69, 255;
 
+    --base-anim-duration: 200ms;
+
     --font-cyberpunk: "Cyberpunk";
 
     /* Shadcn */
@@ -87,6 +89,45 @@
 }
 
 @layer utilities {
+  @keyframes slider {
+    0% {
+      transform: translateX(0%);
+    }
+    /* 50% {
+      transform: translateX(-100%);
+    } */
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+  .animated-underline {
+    position: relative;
+    transition: all var(--base-anim-duration);
+    border-bottom: var(--border-size, 4px) solid transparent;
+    /* animation: slider infinite 5s; */
+  }
+  .animated-underline:active {
+    transform: scale(0.9);
+  }
+  .animated-underline::before {
+    content: "";
+    width: 100%;
+    height: var(--border-size, 4px);
+    position: absolute;
+    top: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0%;
+    transition: all var(--base-anim-duration);
+  }
+  .animated-underline:hover::before {
+    background-size: 100%;
+  }
   .smallcaps {
     font-variant: small-caps;
   }

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import { Russo_One } from "next/font/google";
 import { getFrontUrl } from "@/lib/utils";
-import { FileText } from "lucide-react";
+import { FileText, GithubIcon } from "lucide-react";
 
 const russo = Russo_One({
   subsets: ["latin"],
@@ -14,7 +14,7 @@ const russo = Russo_One({
 
 export const metadata: Metadata = {
   metadataBase: new URL(getFrontUrl()),
-  title: "E.I.P.A. Dev and more",
+  title: "Pierre Avizou | Fullstack developer",
   description: "Pierre likes to write code and solve problems",
 };
 
@@ -30,12 +30,13 @@ export default function RootLayout({
           {children}
         </main>
         <footer className="flex flex-col items-center justify-center bg-purple py-6 dark:bg-blue-dark">
-          <div>
+          <div className="[--border-size:2px]">
             <p>&copy; 2018 - {new Date().getFullYear()} Pierre Avizou</p>
             <p className="mb-1">SIRET: 84012005900026</p>
             <a
-              className="mb-0.5 inline-block"
+              className="animated-underline mb-0.5 inline-block"
               href="https://www.linkedin.com/in/pierre-avizou-b31aa392/"
+              target="_blank"
             >
               <svg
                 className="inline-block w-6"
@@ -53,8 +54,9 @@ export default function RootLayout({
             </a>
             <br />
             <a
-              className="mb-0.5 inline-block"
+              className="animated-underline mb-0.5 inline-block"
               href="https://www.malt.fr/profile/pierreavizou"
+              target="_blank"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -75,13 +77,24 @@ export default function RootLayout({
             </a>
             <br />
             <a
-              className="mb-0.5 inline-block"
-              href="https://nextcloud.avizou.eu/s/W52LQtxYHAZGZFo/download/CV%20Pierre%20Avizou.pdf"
+              className="animated-underline mb-0.5 inline-block"
+              href="https://nextcloud.avizou.eu/s/yQNkoGqinaqaiKb/download/Resume%20Pierre%20Avizou.pdf"
               target="_blank"
             >
               <FileText className="inline-block w-6 py-0.5" />
               <span className="ml-1 align-middle hover:text-secondary dark:hover:text-secondary-foreground/80">
                 My Résumé
+              </span>
+            </a>
+            <br />
+            <a
+              className="animated-underline mb-0.5 inline-block"
+              href="https://github.com/pierreavizou"
+              target="_blank"
+            >
+              <GithubIcon className="inline-block w-6 py-0.5" />
+              <span className="ml-1 align-middle hover:text-secondary dark:hover:text-secondary-foreground/80">
+                Github
               </span>
             </a>
             <p className="mt-4 text-sm italic">
