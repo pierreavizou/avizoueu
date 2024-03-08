@@ -83,7 +83,7 @@ export default function Home() {
           <span className="text-center">—</span>
           <a
             className="animated-underline"
-            href="https://nextcloud.avizou.eu/s/yQNkoGqinaqaiKb/download/Resume%20Pierre%20Avizou.pdf"
+            href="cv/Resume%20Pierre%20Avizou.pdf"
           >
             <FileText className="inline-block" />
             &nbsp;

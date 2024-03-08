@@ -1,0 +1,3 @@
+[submodule "public/cv"]
+	path = public/cv
+	url = git@github.com:pierreavizou/latex-cv.git
