@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { NextRequest } from "next/server";
 import logAccess from "@/lib/server/logFileAccess";
 
