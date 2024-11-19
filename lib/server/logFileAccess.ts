@@ -1,7 +1,7 @@
 import { headers } from "next/headers";
 import { NextRequest } from "next/server";
+import { ipAddress } from "@vercel/functions";
 import { createClient } from "@supabase/supabase-js";
-import { ReadonlyHeaders } from "next/dist/server/web/spec-extension/adapters/headers";
 import { getFrontUrl } from "../utils";
 
 const supabase = createClient(
@@ -17,9 +17,9 @@ export default async function logAccess(req: NextRequest, filename: string) {
     console.log("Not logging access to", filename);
     return;
   }
-  const headersList = headers();
+  const headersList = await headers();
 
-  let ip = req.ip ?? headersList.get("x-real-ip");
+  let ip = ipAddress(req) ?? headersList.get("x-real-ip");
   const forwardedFor = headersList.get("x-forwarded-for");
   if (!ip && forwardedFor) {
     ip = forwardedFor.split(",").at(0) ?? "Unknown";
