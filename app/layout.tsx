@@ -78,7 +78,7 @@ export default function RootLayout({
             <br />
             <a
               className="animated-underline mb-0.5 inline-block"
-              href="cv/Resume%20Pierre%20Avizou.pdf"
+              href="/cv/Resume%20Pierre%20Avizou.pdf"
               target="_blank"
             >
               <FileText className="inline-block w-6 py-0.5" />
