@@ -6,7 +6,6 @@ import Component from "./component";
 import logAccess from "@/lib/server/logFileAccess";
 
 export const runtime = "nodejs";
-export const dynamic = "force-dynamic";
 
 // const cyberpunk = readFileSync("public/Cyberpunk.ttf");
 const russo = readFileSync(

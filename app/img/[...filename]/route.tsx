@@ -3,9 +3,9 @@ import logAccess from "@/lib/server/logFileAccess";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { filename: string[] } },
+  { params }: { params: Promise<{ filename: string[] }> },
 ) {
-  const filename = params.filename.join("/");
+  const filename = (await params).filename.join("/");
   console.log("filename", filename);
 
   await logAccess(req, filename);
